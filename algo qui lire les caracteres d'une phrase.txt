@@ -1,0 +1,59 @@
+Algorithme analyserPhrase
+Variable
+    longueur_de_la_phrase, nombre_de_Mots, nombre_de_Voyelle, n, i: entier
+    phrase, voyelles: chaîne
+    caract: caractère
+    caractere_est_un_Espace, fin_de_phrase: booléen
+Début
+    // Initialisation des variables
+    longueur_de_la_phrase <- 0   // Compteur pour la longueur de la phrase
+    nombre_de_Mots <- 0          // Compteur pour le nombre de mots
+    nombre_de_Voyelle <- 0       // Compteur pour le nombre de voyelles
+    voyelles <- "aeiouyAEIOUY"   // Liste des voyelles (majuscules et minuscules)
+    caractere_est_un_Espace <- vrai     // Indicateur pour savoir si le dernier caractère était un espace
+    fin_de_phrase <- faux        // Variable pour contrôler la fin de la phrase (point final)
+
+    // Lecture de la phrase de l'utilisateur
+    écrireln("Entrez une phrase terminée par un point : ")
+    lire(phrase)      // Lire la phrase de l'utilisateur
+
+    // Calculer la taille de la phrase sans compter le point final
+    n <- taille(phrase) - 1      // La variable n recoit la taille de la phrase sans le point final
+
+    // Parcourir chaque caractère de la phrase
+    Pour i de 0 à n - 1 faire
+        caract <- phrase[i]      // Récupérer le caractère actuel
+
+        // Vérifier si le caractère est un point (fin de la phrase)
+        si caract = '.' alors
+            fin_de_phrase <- vrai     // Marquer la fin de la phrase
+        finsi
+
+        // Si ce n'est pas un point, continuer les traitements
+        si fin_de_phrase = faux alors
+            // Compter la longueur de la phrase (sans compter le point final)
+            longueur_de_la_phrase <- longueur_de_la_phrase + 1
+
+            // Vérifier si le caractère est une voyelle
+            si caract = 'a' ou caract = 'e' ou caract = 'i' ou caract = 'o' ou caract = 'u' ou caract = 'y'
+               ou caract = 'A' ou caract = 'E' ou caract = 'I' ou caract = 'O' ou caract = 'U' ou caract = 'Y' alors
+                nombre_de_Voyelle <- nombre_de_Voyelle + 1  // Incrémenter le compteur de voyelles
+            finsi
+
+            // Détecter les mots dans la phrase
+            si caract <> ' ' alors    // Si le caractère n'est pas un espace
+                si caractere_est_un_Espace alors
+                    nombre_de_Mots <- nombre_de_Mots + 1  // Compter un nouveau mot
+                finsi
+                caractere_est_un_Espace <- faux  // Le caractère actuel n'est pas un espace
+            sinon
+                caractere_est_un_Espace <- vrai   // L'espace est rencontré, le prochain mot commence après cet espace
+            finsi
+        finsi
+    Finpour
+
+    // Afficher les résultats finaux
+    écrireln("Longueur de la phrase : ", longueur_de_la_phrase)
+    écrireln("Nombre de mots dans la phrase : ", nombre_de_Mots)
+    écrireln("Nombre de voyelles dans la phrase : ", nombre_de_Voyelle)
+Fin

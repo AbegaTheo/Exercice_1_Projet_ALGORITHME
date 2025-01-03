@@ -4,7 +4,9 @@ README.md
 
 LECTURE DE CARACTERE DE PHRASE
 
-Ce programme écrit en pseudo-code est conçu pour analyser une phrase saisie par l'utilisateur. L'objectif est de déterminer la longueur de la phrase, le nombre de mots et le nombre de voyelles dans la phrase. La phrase saisie doit se terminer par un point (".").
+Ce programme écrit en pseudo-code est conçu pour analyser une phrase saisie par l'utilisateur.
+L'objectif est de déterminer la longueur de la phrase, le nombre de mots et le nombre de voyelles dans la phrase.
+La phrase saisie doit se terminer par un point (".").
 
 Objectifs
 
